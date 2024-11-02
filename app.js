@@ -1,6 +1,7 @@
 const express = require('express');
 const nodemailer = require ('nodemailer');
 const bodyParser = require ('body-parser');
+const cookieParser = require('cookie-parser'); // Import cookie-parser
 const { dirname } = require ("path");
 const { fileURLToPath } = require("url");
 
@@ -28,6 +29,7 @@ app.use(express.static('public'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 // // Serve static files (index.html)
 // app.use(express.static(path.join(__dirname, 'public')));
