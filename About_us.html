@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>St Matthew</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">St Matthew <img src="/IMAGES/image5.jpg" alt="" width="50px" height="50px"></div>
+        <div class="logo">St Matthew <img src="./IMAGES/image5.jpg" alt="" width="50px" height="50px"></div>
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
         <ul class="nav-list">
-            <li><a href="#home">Home</a></li>
-            <li><a href="About_us.html">About Us</a></li>
-            <li><a href="harvest.html">Harvest</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./About_us.html">About Us</a></li>
+            <li><a href="./harvest.html">Harvest</a></li>
             <li class="dropdown">
                 <a href="#PPC">Parish Pastoral Council</a> 
                 <ul class="dropdown-content">
@@ -92,7 +94,7 @@
     <!-- Main Content Section -->
     <div class="main-content3">
         <div class="image-container3">
-            <img src="./IMAGES/FR innocent.jpg" alt="Priest Image">
+            <img src="./IMAGES/FRinnocent.jpg" alt="Priest Image">
         </div>
         <div class="card3">
             <h2>WELCOME TO ST MATTHEW AMUKOKO</h2>
@@ -174,7 +176,7 @@
     <!-- FOOTER -->
     <div id="contact us" class="footer">
         <div>
-            <img src="IMAGES/image5.jpg" alt="St. Matthew Catholic Church Logo" style="width: 100px;">
+            <img src="./IMAGES/image5.jpg" alt="St. Matthew Catholic Church Logo" style="width: 100px;">
             <p>&copy; 2024 St. Matthew Catholic Church.</p>
         </div>
         <div>
@@ -189,20 +191,41 @@
         <div>
             <h3>Quicklinks</h3>
             <ul>
-                <li><a href="About_us.html">About us</a></li>
-                <li><a href="#">Harvest</a></li>
+                <li><a href="./About_us.html">About us</a></li>
+                <li><a href="./harvest.html">Harvest</a></li>
                 <li><a href="#">Parish Activities</a></li>
                 <li><a href="#">Donate</a></li>
                 <li><a href="#">Announcements</a></li>
             </ul>
         </div>
-        <div>
+        <div class="con">
             <h3>Connect</h3>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a class="face" href="https://www.facebook.com/profile.php?id=61558566467772&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-youtube"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
+            <style>
+                .social-icons a {
+    margin-right: 10px;
+    /* color: #ec0909; */
+    
+    
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.social-icons{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/* .social-icons a:hover {
+    color: #007bff; /* Change to a desired hover color */
+/* } */ */
+
+            </style>
             <h3>Related Links</h3>
             <a href="#"><i class="fas fa-link"></i> Catholic Archdiocese of Lagos, Nigeria</a>
         </div>
