@@ -39,42 +39,58 @@ app.use(cookieParser());
 
 
 
+ app.post('/submit', (req, res) => {
+  const { name, email, phone, message } = req.body;
 
-app.post('/submit', (req, res) => {
-    const { name, email, phone, message } = req.body;
-    console.log(name)
-    console.log(email)
-    console.log(phone)
-    console.log(message)
-    const subject = "Inquiry"
-    // Create a transporter object using SMTP transport
-    const transporter = nodemailer.createTransport({
+  // Check if required fields are provided
+  if (!name || !email || !phone || !message) {
+      return res.status(400).send('All fields are required.');
+  }
+
+  console.log('Name:', name);
+  console.log('Email:', email);
+  console.log('Phone:', phone);
+  console.log('Message:', message);
+  const subject = "Inquiry";
+
+  // Create a transporter object using SMTP transport
+  const transporter = nodemailer.createTransport({
       service: 'gmail', // Use your email service provider
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASS
+          user: process.env.EMAIL,
+          pass: process.env.PASS,
       },
-    });
-  
-    // Email options
-    const mailOptions = {
+  });
+
+  // Email options
+  const mailOptions = {
       from: email, // Sender's email address
       to: process.env.EMAIL, // Recipient's email address
       subject: subject,
-      phone: phone,
       text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`,
-    };
-  
-    // Send email
-    transporter.sendMail(mailOptions, (error, info) => {
+  };
+
+  // Send email
+  transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        return res.status(500).send('Error sending email: ' + error.message);
+          console.error('Error sending email:', error); // Log the error
+          return res.status(500).send('Error sending email: ' + error.message);
       }
-      // res.sendFile(path.join(__dirname, 'Tracking_ContactUs.html'));
-      // res.sendFile(path.join(__dirname, 'view', 'succes.html'));
-      res.redirect ('https://lucy-damisa.github.io/St-Matthew/');
-    });
+
+      console.log('Email sent:', info.response); // Log the response
+
+      // Set a cookie (for example, a confirmation cookie)
+      res.cookie('submissionStatus', 'success', {
+          maxAge: 900000, // Cookie will expire after 15 minutes
+          httpOnly: true, // Helps mitigate the risk of client-side script accessing the cookie
+          secure: true, // Use true if serving over HTTPS
+      });
+
+      // Redirect or send a success message
+      res.redirect('https://lucy-damisa.github.io/St-Matthew/');
   });
+});
+
 
 
 
