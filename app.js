@@ -70,7 +70,7 @@ app.post('/submit', (req, res) => {
       }
       // res.sendFile(path.join(__dirname, 'Tracking_ContactUs.html'));
       // res.sendFile(path.join(__dirname, 'view', 'succes.html'));
-      res.redirect ('http://127.0.0.1:5500/index.html');
+      res.redirect ('https://lucy-damisa.github.io/St-Matthew/');
     });
   });
 
